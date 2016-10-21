@@ -13,7 +13,7 @@ All api endpoints are hidden behind authentication. Currently using cookies base
 
 No major Frontend Framework used due to shortage of time just basic jquery. Dashboard.js is reponsible for doing all ajax requests to API.
 
-I have added tests but they are failing becuase of some changes Factory-boy new changes. Will fix them when have a time. 
+I have added tests but they are failing becuase of some Factory-boy new changes. Will fix them when have a time. 
 
 ## Development Environment
 
