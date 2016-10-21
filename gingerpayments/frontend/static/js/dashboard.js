@@ -117,7 +117,6 @@ $(function(){
     
     $(".nprs").click(function(ev){
         ev.preventDefault();
-        var obj;
         var seri = $('#new-person').serializeObject();
         addPerson(seri);
     });
@@ -153,23 +152,22 @@ $(function(){
         var personId = getQPathParams(2);
         fetchPerson(personId);
     }
+
+    $.fn.serializeObject = function() {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
     
 
 });
-
-$.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};

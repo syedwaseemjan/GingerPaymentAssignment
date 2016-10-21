@@ -9,9 +9,11 @@ Sqlite DB is used for storing data. Sqlalchemy is used to help with the queries.
 2. Frontend
 
 Restful API is used for CRUD operations. Frontend application is used for serving static files(CSS, JS, HTML) and is also responsible for routing as I have not used any frontend routing solution.
-All api endpoints are hidden behind authentication. Currently using cookies based session and authentication. So the API can be tested in browser easily for now. Can easily switch to Token based authentication (Will do it if found time).
+All api endpoints are hidden behind authentication. Currently using cookies based session and authentication. So the API can be tested in browser easily for now. Can easily switch to Token based authentication (Will do it when have time).
 
-No major Frontend Framework used due to shortage of time just basic jquery. Dashboard.js is reponsible for doing all ajax requests to API. 
+No major Frontend Framework used due to shortage of time just basic jquery. Dashboard.js is reponsible for doing all ajax requests to API.
+
+I have added tests but they are failing becuase of some changes Factory-boy new changes. Will fix them when have a time. 
 
 ## Development Environment
 
@@ -51,3 +53,9 @@ The following assumes you have all of the recommended tools listed above install
     $ Username: admin@gingerassignment.com
     $ Password: test123
 
+#### 6. Run tests (Don't run for now. They are failing. Will fix them later):
+
+    $ nosetests
+
+## Design-only question:
+	For any advance text search my solution will always be Elasticsearch. It provides quite advance queries for search like Fuzzy, Prefix and other things like Facets etc. 
