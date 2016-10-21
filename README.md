@@ -3,12 +3,15 @@ Python Flask Restful Api.
 
 ## Concept
 
-Sqlite DB is used for storing data. Sqlalchemy is used to help with the queries. I have used a service layer which is an internal API of this system. On top of this internal API, I have implemented two  applications. 
+Sqlite DB is used for storing data. Sqlalchemy is used to help with the queries. I have used a service layer which is an internal API of this system. On top of this internal API, two  applications have been implemented.
+
 1. Restful API
 2. Frontend
 
 Restful API is used for CRUD operations. Frontend application is used for serving static files(CSS, JS, HTML) and is also responsible for routing as I have not used any frontend routing solution.
-All api endpoints are hidden behind authentication. Currently using cookies based session and authentication. So the API can be tested in browser easily for now. Can easily switch to Token based authentication (Will do it if found time). 
+All api endpoints are hidden behind authentication. Currently using cookies based session and authentication. So the API can be tested in browser easily for now. Can easily switch to Token based authentication (Will do it if found time).
+
+No major Frontend Framework used due to shortage of time just basic jquery. Dashboard.js is reponsible for doing all ajax requests to API. 
 
 ## Development Environment
 
