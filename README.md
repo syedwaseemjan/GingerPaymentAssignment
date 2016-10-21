@@ -58,4 +58,6 @@ The following assumes you have all of the recommended tools listed above install
     $ nosetests
 
 ## Design-only question:
-	For any advance text search my solution will always be Elasticsearch. It provides quite advance queries for search like Fuzzy, Prefix and other things like Facets etc. 
+
+For any advance text search my solution will always be Elasticsearch. It provides quite advance 
+queries for search like Fuzzy, Prefix and other things like Facets etc. 
