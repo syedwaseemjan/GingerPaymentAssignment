@@ -10,7 +10,7 @@ bp = Blueprint('person', __name__, url_prefix='/persons')
 @route(bp, '/')
 def list():
 	"""Returns a list of user instances."""
-	return _groups.all()
+	return _persons.all()
 
 @route(bp, '/', methods=['POST'])
 def new():

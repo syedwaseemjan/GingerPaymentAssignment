@@ -56,8 +56,8 @@ class GroupForm(WTForm):
     name = QuerySelectField(query_factory=get_groups, blank_text='')
 
 class NewPersonForm(Form):
-    fname = TextField('First Name', validators=[Required()])
-    lname = TextField('Last Name', validators=[Required()])
+    first_name = TextField('First Name', validators=[Required()])
+    last_name = TextField('Last Name', validators=[Required()])
 
     addresses = FieldList(FormField(AddressForm), min_entries=1)
     emails = FieldList(FormField(EmailForm), min_entries=1)

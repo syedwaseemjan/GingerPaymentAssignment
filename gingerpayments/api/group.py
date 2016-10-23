@@ -39,6 +39,11 @@ def delete(group_id):
     _groups.delete(_groups.get_or_404(group_id))
     return None, 204
 
+@route(bp, '/<group_id>/persons')
+def persons(group_id):
+    """Returns a list of persons instances belonging to a group."""
+    return _groups.get_or_404(group_id).persons
+
 @route(bp, '/<group_id>/persons/<user_id>')
 def add_person(group_id, user_id):
     group, person = _groups.add_person(_groups.get_or_404(group_id),

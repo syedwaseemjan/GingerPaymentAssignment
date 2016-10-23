@@ -21,7 +21,7 @@ class PersonApiTestCase(GingerApiTestCase):
         self.person = PersonFactory(addresses=[self.address],emails=[self.email],\
                                             phones=[self.phone],groups=[self.group])
 
-    def test_get_products(self):
+    def test_get_persons(self):
         r = self.jget('/persons')
         self.assertOkJson(r)
 
@@ -29,20 +29,20 @@ class PersonApiTestCase(GingerApiTestCase):
         r = self.jget('/persons/%s' % self.person.id)
         self.assertOkJson(r)
 
-    def test_create_product(self):
+    def test_create_persons(self):
         r = self.jpost('/persons', data={
-            'fname': 'New Person',
-            'lname': 'Last',
-            'addresses': [self.address.id],
-            'emails': [self.email.id],
-            'phones': [self.phone.id],
-            'groups': [self.group.id]
+            'first_name': 'New Person First Name',
+            'last_name': 'New Person Last Name',
+            'addresses-0-name': 'Address New',
+            'emails-0-name': 'user_new@gingerpayments.com',
+            'phones-0-name': 'Phone Number New',
+            'groups-0-name': str(self.group.id)
         })
         self.assertOkJson(r)
 
     def test_create_invalid_person(self):
         r = self.jpost('/persons', data={
-            'fname': 'New Person'
+            'first_name': 'New Person'
         })
         self.assertBadJson(r)
 
@@ -53,5 +53,5 @@ class PersonApiTestCase(GingerApiTestCase):
         self.assertOkJson(r)
 
     def test_delete_person(self):
-        r = self.jdelete('/persons/%s' % self.person.id)
+        r = self.jget('/persons/%s/delete' % self.person.id)
         self.assertStatusCode(r, 204)

@@ -12,8 +12,8 @@ class PersonsService(Service):
 
     def create_person(self, form):
     	person = Person()
-    	person.first_name = form.fname.data
-    	person.last_name = form.lname.data
+    	person.first_name = form.first_name.data
+    	person.last_name = form.last_name.data
         for aform in form.addresses:
             if aform.data["name"]:
                 person.addresses.append(Address(aform.data["name"]))

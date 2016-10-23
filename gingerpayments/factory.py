@@ -23,9 +23,10 @@ def create_app(package_name, package_path, settings_override=None,
     app.config.from_pyfile('settings.cfg', silent=True)
     app.config.from_object(settings_override)
 
-    db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'payments_ginger.db'))
-    db_uri = 'sqlite:///{}'.format(db_path)
-    app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+    if app.config['SQLALCHEMY_DATABASE_URI'] != "sqlite:///:memory:":
+        db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'payments_ginger.db'))
+        db_uri = 'sqlite:///{}'.format(db_path)
+        app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
     db.init_app(app)
 

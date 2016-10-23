@@ -13,7 +13,11 @@ All api endpoints are hidden behind authentication. Currently using cookies base
 
 No major Frontend Framework used due to shortage of time just basic jquery. Dashboard.js is reponsible for doing all ajax requests to API.
 
-I have added tests but they are failing becuase of some Factory-boy new changes. Will fix them when have a time. 
+Functional tests are added for testing all the endpoints. I am using 
+
+1. Nose
+2. Mock
+3. Factory boy
 
 ## Development Environment
 
@@ -43,19 +47,19 @@ The following assumes you have all of the recommended tools listed above install
     $ python manage.py create_db
     $ python manage.py init_db
 
-#### 4. Run the server:
+#### 4. Run tests:
+
+    $ nosetests -v
+
+#### 5. Run the server:
 
     $ python runserver.py
 
-#### 5. Load the system in browser:
+#### 6. Load the system in browser:
 
     $ Visit http://127.0.0.1:5000
     $ Username: admin@gingerassignment.com
     $ Password: test123
-
-#### 6. Run tests (Don't run for now. They are failing. Will fix them later):
-
-    $ nosetests
 
 ## Design-only question:
 
