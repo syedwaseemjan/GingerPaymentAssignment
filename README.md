@@ -1,4 +1,4 @@
-# GingerPaymentAssignment
+# OnlineAddressBook
 Python Flask Restful Api.
 
 ## Concept
@@ -32,14 +32,14 @@ The following assumes you have all of the recommended tools listed above install
 
 #### 1. Clone the project:
 
-    $ git clone git@github.com/syedwaseemjan/GingerPaymentAssignment.git
-    $ cd GingerPaymentAssignment
+    $ git clone git@github.com/syedwaseemjan/OnlineAddressBook.git
+    $ cd OnlineAddressBook
 
 #### 2. Create and initialize virtualenv for the project:
 
-    $ mkdir ginger_virtualenv
-    $ virtualenv ginger_virtualenv
-    $ source ginger_virtualenv/bin/activate
+    $ mkdir ab_virtualenv
+    $ virtualenv ab_virtualenv
+    $ source ab_virtualenv/bin/activate
     $ pip install -r requirements.txt
 
 #### 3. Setup the Sqlite DB (Add default admin user):
@@ -66,5 +66,5 @@ The following assumes you have all of the recommended tools listed above install
 For any advance text search my solution will always be Elasticsearch. It provides quite advance 
 queries for search like Fuzzy, Prefix and other things like Facets etc. 
 
-### Design-only question:
+### References:
 1. https://github.com/gingerpayments/hiring/blob/master/coding-assignments/python-address-book-assignment/python-address-book-assignment.rst
