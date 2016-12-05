@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # OnlineAddressBook (This application was an assigment for a job vacancy)
-=======
-# OnlineAddressBook
->>>>>>> 7466689775f4539a0dd91ca5d95a1b61cd6648a5
 Python Flask Restful Api.
 
 ## Concept
@@ -41,15 +37,9 @@ The following assumes you have all of the recommended tools listed above install
 
 #### 2. Create and initialize virtualenv for the project:
 
-<<<<<<< HEAD
     $ mkdir book_virtualenv
     $ virtualenv book_virtualenv
     $ source book_virtualenv/bin/activate
-=======
-    $ mkdir ab_virtualenv
-    $ virtualenv ab_virtualenv
-    $ source ab_virtualenv/bin/activate
->>>>>>> 7466689775f4539a0dd91ca5d95a1b61cd6648a5
     $ pip install -r requirements.txt
 
 #### 3. Setup the Sqlite DB (Add default admin user):
