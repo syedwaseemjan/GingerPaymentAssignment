@@ -5,11 +5,11 @@
 
     api user tests module
 """
-"""
-from . import GingerFrontendTestCase
+
+from . import AddressBookFrontendTestCase
 
 
-class DashboardTestCase(GingerFrontendTestCase):
+class DashboardTestCase(AddressBookFrontendTestCase):
     
     def test_authenticated_dashboard_access(self):
         r = self.get('/')
@@ -20,5 +20,4 @@ class DashboardTestCase(GingerFrontendTestCase):
         self.get('/logout')
         r = self.get('/')
         self.assertOk(r)
-        self.assertNotIn('section search', r.data)
-"""    
+        self.assertNotIn('section search', r.data)    

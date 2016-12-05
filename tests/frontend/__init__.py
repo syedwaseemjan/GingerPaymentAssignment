@@ -11,11 +11,11 @@ from addressbook.frontend import create_app
 from .. import AddressBookAppTestCase, settings
 
 
-class GingerFrontendTestCase(AddressBookAppTestCase):
+class AddressBookFrontendTestCase(AddressBookAppTestCase):
 
     def _create_app(self):
         return create_app(settings)
 
     def setUp(self):
-        super(GingerFrontendTestCase, self).setUp()
+        super(AddressBookFrontendTestCase, self).setUp()
         self._login()

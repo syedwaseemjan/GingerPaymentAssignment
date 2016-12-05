@@ -7,10 +7,10 @@
 """
 
 from ..factories import GroupFactory, PersonFactory
-from . import GingerApiTestCase
+from . import AddressBookApiTestCase
 
 
-class GroupApiTestCase(GingerApiTestCase):
+class GroupApiTestCase(AddressBookApiTestCase):
 
     def _create_fixtures(self):
         super(GroupApiTestCase, self)._create_fixtures()
