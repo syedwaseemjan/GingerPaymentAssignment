@@ -6,12 +6,12 @@
     frontend tests package
 """
 
-from gingerpayments.frontend import create_app
+from addressbook.frontend import create_app
 
-from .. import GingerAppTestCase, settings
+from .. import AddressBookAppTestCase, settings
 
 
-class GingerFrontendTestCase(GingerAppTestCase):
+class GingerFrontendTestCase(AddressBookAppTestCase):
 
     def _create_app(self):
         return create_app(settings)

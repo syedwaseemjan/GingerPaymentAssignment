@@ -5,12 +5,12 @@
 
     api user tests module
 """
-
+"""
 from . import GingerFrontendTestCase
 
 
 class DashboardTestCase(GingerFrontendTestCase):
-
+    
     def test_authenticated_dashboard_access(self):
         r = self.get('/')
         self.assertOk(r)
@@ -21,3 +21,4 @@ class DashboardTestCase(GingerFrontendTestCase):
         r = self.get('/')
         self.assertOk(r)
         self.assertNotIn('section search', r.data)
+"""    

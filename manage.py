@@ -1,8 +1,8 @@
 from flask.ext.script import Manager
 
-from gingerpayments.api import create_app
-from gingerpayments.extensions import db
-from gingerpayments.models import Admin
+from addressbook.api import create_app
+from addressbook.extensions import db
+from addressbook.models import Admin
 
 manager = Manager(create_app())
 
@@ -21,7 +21,7 @@ def init_db():
 @manager.command
 def create_admin():
     admin = Admin()
-    admin.email = "admin@gingerassignment.com"
+    admin.email = "admin@addressbook.com"
     admin.password = "test123"
     admin.active = True
     db.session.add(admin)

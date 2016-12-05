@@ -3,7 +3,7 @@
     tests.factories
     ~~~~~~~~~~~~~~~
 
-    GingerPayments test factories module
+    OnlineAddressBook test factories module
 """
 
 from datetime import datetime
@@ -12,26 +12,20 @@ from factory import Sequence, LazyAttribute
 from factory.alchemy import SQLAlchemyModelFactory
 from passlib.hash import bcrypt
 
-from gingerpayments.extensions import db
-from gingerpayments.models import *
+from addressbook.extensions import db
+from addressbook.models import *
 
 
 class BaseFactory(SQLAlchemyModelFactory):
     class Meta:
         sqlalchemy_session = db.session
 
-    @classmethod
-    def _create(cls, model_class, *args, **kwargs):
-        entity = model_class(*args, **kwargs)
-        db.session.add(entity)
-        db.session.commit()
-        return entity
 
 class AdminFactory(BaseFactory):
     class Meta:
         model = Admin
-    email = Sequence(lambda n: 'user{0}@gingerpayments.com'.format(n))
-    password = LazyAttribute(lambda a: bcrypt.encrypt('password'))
+    email = Sequence(lambda n: 'user{0}@addressbook.com'.format(n))
+    _password = LazyAttribute(lambda a: bcrypt.encrypt('password'))
     active = True
 
 
@@ -50,7 +44,7 @@ class AddressFactory(BaseFactory):
 class EmailFactory(BaseFactory):
     class Meta:
         model = Email
-    email = Sequence(lambda n: 'user{0}@gingerpayments.com'.format(n))
+    email = Sequence(lambda n: 'user{0}@addressbook.com'.format(n))
 
 class PhoneFactory(BaseFactory):
     class Meta:

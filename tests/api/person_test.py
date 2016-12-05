@@ -20,7 +20,7 @@ class PersonApiTestCase(GingerApiTestCase):
         self.group = GroupFactory()
         self.person = PersonFactory(addresses=[self.address],emails=[self.email],\
                                             phones=[self.phone],groups=[self.group])
-
+    
     def test_get_persons(self):
         r = self.jget('/persons')
         self.assertOkJson(r)
@@ -34,7 +34,7 @@ class PersonApiTestCase(GingerApiTestCase):
             'first_name': 'New Person First Name',
             'last_name': 'New Person Last Name',
             'addresses-0-name': 'Address New',
-            'emails-0-name': 'user_new@gingerpayments.com',
+            'emails-0-name': 'user_new@addressbook.com',
             'phones-0-name': 'Phone Number New',
             'groups-0-name': str(self.group.id)
         })

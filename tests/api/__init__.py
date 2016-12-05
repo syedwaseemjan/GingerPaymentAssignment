@@ -6,12 +6,12 @@
     api tests package
 """
 
-from gingerpayments.api import create_app
+from addressbook.api import create_app
 
-from .. import GingerAppTestCase, settings
+from .. import AddressBookAppTestCase, settings
 
 
-class GingerApiTestCase(GingerAppTestCase):
+class GingerApiTestCase(AddressBookAppTestCase):
 
     def _create_app(self):
         return create_app(settings, register_security_blueprint=True)

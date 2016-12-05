@@ -1,9 +1,6 @@
 DEBUG = False
 TESTING = True
 WTF_CSRF_ENABLED = False
-
-SQLALCHEMY_POOL_SIZE = None
-SQLALCHEMY_POOL_TIMEOUT = None
-SQLALCHEMY_POOL_RECYCLE = None
-SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+#SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+SQLALCHEMY_DATABASE_URI = "test_payments_ginger.db"
 

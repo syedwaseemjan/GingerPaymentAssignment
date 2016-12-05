@@ -65,4 +65,3 @@ class GroupApiTestCase(GingerApiTestCase):
         r = self.jget(e)
         self.assertStatusCode(r, 204)
 
-

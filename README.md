@@ -1,4 +1,4 @@
-# GingerPaymentAssignment
+# OnlineAddressBook (This application was an assigment for a job vacancy)
 Python Flask Restful Api.
 
 ## Concept
@@ -32,14 +32,14 @@ The following assumes you have all of the recommended tools listed above install
 
 #### 1. Clone the project:
 
-    $ git clone git@github.com/syedwaseemjan/GingerPaymentAssignment.git
-    $ cd GingerPaymentAssignment
+    $ git clone git@github.com/syedwaseemjan/OnlineAddressBook.git
+    $ cd OnlineAddressBook
 
 #### 2. Create and initialize virtualenv for the project:
 
-    $ mkdir ginger_virtualenv
-    $ virtualenv ginger_virtualenv
-    $ source ginger_virtualenv/bin/activate
+    $ mkdir book_virtualenv
+    $ virtualenv book_virtualenv
+    $ source book_virtualenv/bin/activate
     $ pip install -r requirements.txt
 
 #### 3. Setup the Sqlite DB (Add default admin user):
@@ -57,9 +57,9 @@ The following assumes you have all of the recommended tools listed above install
 
 #### 6. Load the system in browser:
 
-    $ Visit http://127.0.0.1:5000
-    $ Username: admin@gingerassignment.com
-    $ Password: test123
+    Visit http://127.0.0.1:5000
+    Username: admin@addressbook.com
+    Password: test123
 
 ## Design-only question:
 

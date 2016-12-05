@@ -8,17 +8,16 @@
 
 from unittest import TestCase
 
-from gingerpayments.extensions import db
+from addressbook.extensions import db
 
 from .factories import AdminFactory
 from .utils import FlaskTestCaseMixin
 
-
-class GingerTestCase(TestCase):
+class BookTestCase(TestCase):
     pass
 
 
-class GingerAppTestCase(FlaskTestCaseMixin, GingerTestCase):
+class AddressBookAppTestCase(FlaskTestCaseMixin, BookTestCase):
 
     def _create_app(self):
         raise NotImplementedError
@@ -27,7 +26,7 @@ class GingerAppTestCase(FlaskTestCaseMixin, GingerTestCase):
         self.user = AdminFactory()
 
     def setUp(self):
-        super(GingerAppTestCase, self).setUp()
+        super(AddressBookAppTestCase, self).setUp()
         self.app = self._create_app()
         self.client = self.app.test_client()
         self.app_context = self.app.app_context()
@@ -37,7 +36,7 @@ class GingerAppTestCase(FlaskTestCaseMixin, GingerTestCase):
         self._create_csrf_token()
 
     def tearDown(self):
-        super(GingerAppTestCase, self).tearDown()
+        super(AddressBookAppTestCase, self).tearDown()
         db.drop_all()
         self.app_context.pop()
 

@@ -3,13 +3,13 @@
     runserver
     ~~~~
 
-    ginger wsgi module
+    addressbook wsgi module
 """
 
 from werkzeug.serving import run_simple
 from werkzeug.wsgi import DispatcherMiddleware
 
-from gingerpayments import api, frontend
+from addressbook import api, frontend
 
 application = DispatcherMiddleware(frontend.create_app(), {
     '/api': api.create_app()
