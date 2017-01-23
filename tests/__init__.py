@@ -43,8 +43,5 @@ class AddressBookAppTestCase(FlaskTestCaseMixin, BookTestCase):
     def _login(self, email=None, password=None):
         email = email or self.user.email
         password = password or 'password'
-        print "----------------------------LOGIN------------------"
-        print email
-        print password
         return self.post('/login', data={'email': email, 'password': password},
                          follow_redirects=False)
