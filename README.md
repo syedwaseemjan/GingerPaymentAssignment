@@ -1,4 +1,4 @@
-# OnlineAddressBook (This application was an assigment for a job vacancy)
+# OnlineAddressBook
 Python Flask Restful Api.
 
 ## Concept
