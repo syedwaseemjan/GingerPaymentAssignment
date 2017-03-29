@@ -66,5 +66,3 @@ The following assumes you have all of the recommended tools listed above install
 For any advance text search my solution will always be Elasticsearch. It provides quite advance 
 queries for search like Fuzzy, Prefix and other things like Facets etc. 
 
-### References:
-1. https://github.com/gingerpayments/hiring/blob/master/coding-assignments/python-address-book-assignment/python-address-book-assignment.rst
