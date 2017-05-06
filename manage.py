@@ -1,4 +1,4 @@
-from flask.ext.script import Manager
+from flask_script import Manager
 
 from addressbook.api import create_app
 from addressbook.extensions import db

@@ -16,6 +16,7 @@ class GroupApiTestCase(AddressBookApiTestCase):
         super(GroupApiTestCase, self)._create_fixtures()
         self.person = PersonFactory()
         self.group = GroupFactory(persons=[self.person])
+        self.p = PersonFactory()
 
     def test_get_groups(self):
         r = self.jget('/groups')
@@ -55,8 +56,7 @@ class GroupApiTestCase(AddressBookApiTestCase):
         self.assertOkJson(r)
 
     def test_add_person(self):
-        p = PersonFactory()
-        e = '/groups/%s/persons/%s' % (self.group.id, p.id)
+        e = '/groups/%s/persons/%s' % (self.group.id, self.p.id)
         r = self.jget(e)
         self.assertOkJson(r)
 
