@@ -6,7 +6,6 @@
     OnlineAddressBook test factories module
 """
 
-from datetime import datetime
 
 from factory import Sequence, LazyAttribute
 from factory.alchemy import SQLAlchemyModelFactory
@@ -41,18 +40,20 @@ class AddressFactory(BaseFactory):
         model = Address
     address = Sequence(lambda n: 'Address {0}'.format(n))
 
+
 class EmailFactory(BaseFactory):
     class Meta:
         model = Email
     email = Sequence(lambda n: 'user{0}@addressbook.com'.format(n))
+
 
 class PhoneFactory(BaseFactory):
     class Meta:
         model = Phone
     phone = Sequence(lambda n: 'Phone Number {0}'.format(n))
 
+
 class GroupFactory(BaseFactory):
     class Meta:
         model = Group
     name = Sequence(lambda n: 'Group Number {0}'.format(n))
-

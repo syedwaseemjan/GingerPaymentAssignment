@@ -1,16 +1,17 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, request
 from addressbook.api import route
-from flask_login import current_user, login_required
-from addressbook.services import _groups, _persons
+from addressbook.services import _persons
 from addressbook.exceptions import AddressBookFormError, AddressBookError
 from addressbook.forms import NewPersonForm, UpdatePersonForm
 
 bp = Blueprint('person', __name__, url_prefix='/persons')
 
+
 @route(bp, '/')
 def list():
-	"""Returns a list of user instances."""
-	return _persons.all()
+    """Returns a list of user instances."""
+    return _persons.all()
+
 
 @route(bp, '/', methods=['POST'])
 def new():
@@ -20,11 +21,13 @@ def new():
         return _persons.create_person(form)
     raise AddressBookFormError(form.errors)
 
+
 @route(bp, '/<person_id>')
 def show(person_id):
     """Returns a person instance."""
     person = _persons.get_or_404(person_id)
     return _persons._serialize(person)
+
 
 @route(bp, '/<person_id>/update', methods=['POST'])
 def update(person_id):
@@ -34,15 +37,18 @@ def update(person_id):
         return _persons.update(_persons.get_or_404(person_id), **request.json)
     raise AddressBookFormError(form.errors)
 
+
 @route(bp, '/<person_id>/delete')
 def delete(person_id):
     """Deletes a person. Returns a 204 response."""
     _persons.delete(_persons.get_or_404(person_id))
     return None, 204
 
+
 @route(bp, '/<int:person_id>/groups')
 def groups(person_id):
-	return {}
+    return {}
+
 
 @route(bp, '/search', methods=['POST'])
 def search():
@@ -52,5 +58,3 @@ def search():
     if not person:
         raise AddressBookError("No Result Found")
     return _persons._serialize(person)
-
-

@@ -5,6 +5,7 @@ from flask import Flask
 from addressbook.extensions import db
 from addressbook.utils import register_blueprints
 
+
 def create_app(package_name, package_path, settings_override=None,
                register_security_blueprint=True):
     """Returns a :class:`Flask` application instance configured with common
@@ -14,8 +15,8 @@ def create_app(package_name, package_path, settings_override=None,
     :param package_path: application package path
     :param settings_override: a dictionary of settings to override
     :param register_security_blueprint: flag to specify if the Flask-Security
-                                        Blueprint should be registered. Defaults
-                                        to `True`.
+                                        Blueprint should be registered.
+                                        Defaults to `True`.
     """
     app = Flask(package_name, instance_relative_config=True)
 
@@ -25,7 +26,8 @@ def create_app(package_name, package_path, settings_override=None,
 
     db_uri = app.config['SQLALCHEMY_DATABASE_URI']
     if db_uri and db_uri != "sqlite:///:memory:":
-        db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', db_uri))
+        db_path = os.path.abspath(os.path.join(
+            os.path.dirname(__file__), '..', db_uri))
         db_uri = 'sqlite:///{}'.format(db_path)
         app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 

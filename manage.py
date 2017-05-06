@@ -6,17 +6,21 @@ from addressbook.models import Admin
 
 manager = Manager(create_app())
 
+
 @manager.command
 def test():
-	pass
+    pass
+
 
 @manager.command
 def create_db():
     db.create_all()
 
+
 @manager.command
 def init_db():
-	create_admin()
+    create_admin()
+
 
 @manager.command
 def create_admin():
@@ -27,6 +31,7 @@ def create_admin():
     db.session.add(admin)
 
     db.session.commit()
+
 
 if __name__ == "__main__":
     manager.run()

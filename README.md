@@ -48,7 +48,9 @@ The following assumes you have all of the recommended tools listed above install
     $ python manage.py init_db
 
 #### 4. Run tests:
-
+    
+    $ nosetests -vv --collect-only (To see where exactly nose is looking for testcases. It won't run the file if the file is not executable)
+    $ chmod -x $(find tests/ -name '*.py')  - (To make your testcases files executable. This command is tested on MAC only)
     $ nosetests -v
 
 #### 5. Run the server:

@@ -4,6 +4,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from addressbook.extensions import db
 from addressbook.utils import JsonSerializer
 
+
 class UserJsonSerializer(JsonSerializer):
     __json_public__ = ['id', 'email']
 
@@ -31,8 +32,10 @@ class Admin(UserJsonSerializer, UserMixin, db.Model):
     def is_active(self):
         return self.active
 
+
 class PersonJsonSerializer(JsonSerializer):
     __json_hidden__ = ['groups']
+
 
 class Person(PersonJsonSerializer, db.Model):
     __tablename__ = 'persons'
@@ -42,16 +45,18 @@ class Person(PersonJsonSerializer, db.Model):
     last_name = db.Column(db.String(120))
 
     emails = db.relationship('Email',
-                               backref=db.backref('persons'))
+                             backref=db.backref('persons'))
 
     addresses = db.relationship('Address',
-                               backref=db.backref('persons'))
+                                backref=db.backref('persons'))
 
     phones = db.relationship('Phone',
-                               backref=db.backref('persons'))
+                             backref=db.backref('persons'))
+
 
 class EmailJsonSerializer(JsonSerializer):
     __json_hidden__ = ['persons']
+
 
 class Email(EmailJsonSerializer, db.Model):
     __tablename__ = 'emails'
@@ -63,8 +68,10 @@ class Email(EmailJsonSerializer, db.Model):
     def __init__(self, email):
         self.email = email
 
+
 class AddressJsonSerializer(JsonSerializer):
     __json_hidden__ = ['persons']
+
 
 class Address(AddressJsonSerializer, db.Model):
     __tablename__ = 'adresses'
@@ -76,8 +83,10 @@ class Address(AddressJsonSerializer, db.Model):
     def __init__(self, address):
         self.address = address
 
+
 class PhoneJsonSerializer(JsonSerializer):
     __json_hidden__ = ['persons']
+
 
 class Phone(PhoneJsonSerializer, db.Model):
     __tablename__ = 'phones'
@@ -88,5 +97,3 @@ class Phone(PhoneJsonSerializer, db.Model):
 
     def __init__(self, phone):
         self.phone = phone
-
-

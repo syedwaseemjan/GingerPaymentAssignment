@@ -17,6 +17,7 @@ from flask_login import login_required, LoginManager
 
 login_manager = LoginManager()
 
+
 def create_app(settings_override=None, register_security_blueprint=False):
     """Returns the AddressBook API application instance"""
 
@@ -64,9 +65,11 @@ def on_addressbook_form_error(e):
 def on_404(e):
     return jsonify(dict(error='Not found')), 404
 
+
 @login_manager.unauthorized_handler
 def unauthorized():
     return jsonify({'error': 'Unauthorized access'}), 401
+
 
 @login_manager.user_loader
 def load_user(userid):

@@ -36,6 +36,7 @@ class JSONEncoder(BaseJSONEncoder):
     """Custom :class:`JSONEncoder` which respects objects that include the
     :class:`JsonSerializer` mixin.
     """
+
     def default(self, obj):
         if isinstance(obj, JsonSerializer):
             return obj.to_json()
@@ -48,7 +49,8 @@ class JsonSerializer(object):
     in conjuction with the custom :class:`JSONEncoder` class. By default this
     mixin will assume all properties of the SQLAlchemy model are to be visible
     in the JSON output. Extend this class to customize which properties are
-    public, hidden or modified before being being passed to the JSON serializer.
+    public, hidden or modified before being being passed to the JSON
+    serializer.
     """
 
     __json_public__ = None

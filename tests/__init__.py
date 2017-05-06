@@ -13,6 +13,7 @@ from addressbook.extensions import db
 from .factories import AdminFactory
 from .utils import FlaskTestCaseMixin
 
+
 class BookTestCase(TestCase):
     pass
 

@@ -64,4 +64,3 @@ class GroupApiTestCase(AddressBookApiTestCase):
         e = '/groups/%s/persons/%s/delete' % (self.group.id, self.person.id)
         r = self.jget(e)
         self.assertStatusCode(r, 204)
-

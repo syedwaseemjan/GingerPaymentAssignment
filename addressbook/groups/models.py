@@ -19,7 +19,7 @@ class Group(UserJsonSerializer, db.Model):
     name = db.Column(db.String(255), unique=True)
 
     persons = db.relationship('Person', secondary=users_groups,
-                               backref=db.backref('groups', lazy='dynamic'))
+                              backref=db.backref('groups', lazy='dynamic'))
 
     def __str__(self):
-    	return self.name
+        return self.name

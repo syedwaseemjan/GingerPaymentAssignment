@@ -6,7 +6,8 @@
     api person tests module
 """
 
-from ..factories import AddressFactory, EmailFactory, PhoneFactory, GroupFactory, PersonFactory
+from ..factories import AddressFactory, EmailFactory,\
+    PhoneFactory, GroupFactory, PersonFactory
 from . import AddressBookApiTestCase
 
 
@@ -18,9 +19,10 @@ class PersonApiTestCase(AddressBookApiTestCase):
         self.email = EmailFactory()
         self.phone = PhoneFactory()
         self.group = GroupFactory()
-        self.person = PersonFactory(addresses=[self.address],emails=[self.email],\
-                                            phones=[self.phone],groups=[self.group])
-    
+        self.person = PersonFactory(addresses=[self.address],
+                                    emails=[self.email],
+                                    phones=[self.phone], groups=[self.group])
+
     def test_get_persons(self):
         r = self.jget('/persons')
         self.assertOkJson(r)

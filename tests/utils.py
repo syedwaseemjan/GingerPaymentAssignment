@@ -31,7 +31,8 @@ class FlaskTestCaseMixin(object):
         with self.client.session_transaction() as session:
             session['csrf'] = csrf_key
         secret_key = self.app.config['SECRET_KEY']
-        expires = (datetime.now() + timedelta(minutes=30)).strftime('%Y%m%d%H%M%S')
+        expires = (datetime.now() + timedelta(minutes=30)
+                   ).strftime('%Y%m%d%H%M%S')
         csrf_build = '%s%s' % (csrf_key, expires)
         csrf_token = csrf_build.encode('utf8')
         csrf_hmac = hmac.new(secret_key, csrf_token, digestmod=sha1)
@@ -83,7 +84,6 @@ class FlaskTestCaseMixin(object):
 
     def jdelete(self, *args, **kwargs):
         return self._jrequest(self.client.delete, *args, **kwargs)
-
 
     def getCookies(self, response):
         cookies = {}

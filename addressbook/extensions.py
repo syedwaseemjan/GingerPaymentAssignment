@@ -1,4 +1,3 @@
-import flask, os
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
 from flask_wtf.csrf import CsrfProtect
@@ -6,6 +5,7 @@ from flask_wtf.csrf import CsrfProtect
 csrf = CsrfProtect()
 
 db = SQLAlchemy()
+
 
 class Service(object):
     """A :class:`Service` instance encapsulates common SQLAlchemy model
@@ -15,8 +15,8 @@ class Service(object):
 
     def _isinstance(self, model, raise_error=True):
         """Checks if the specified model instance matches the service's model.
-        By default this method will raise a `ValueError` if the model is not the
-        expected type.
+        By default this method will raise a `ValueError` if the model is
+        not the expected type.
 
         :param model: the model instance to check
         :param raise_error: flag to raise an error on a mismatch
@@ -40,7 +40,7 @@ class Service(object):
 
         :param model: the model to save
         """
-        #self._isinstance(model)
+        # self._isinstance(model)
         db.session.add(model)
         self.commit()
         return model
@@ -56,7 +56,7 @@ class Service(object):
 
         :param id: the instance id
         """
-        return self.__model__.query.get(id) 
+        return self.__model__.query.get(id)
 
     def get_all(self, same_order, *ids):
         """Returns a list of instances of the service's model with the specified
@@ -132,7 +132,7 @@ class Service(object):
 
         :param model: the model instance to delete
         """
-        
+
         self._isinstance(model, raise_error)
         db.session.delete(model)
         self.commit()
