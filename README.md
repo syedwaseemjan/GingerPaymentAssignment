@@ -1,4 +1,5 @@
 [![Requirements Status](https://requires.io/github/syedwaseemjan/OnlineAddressBook/requirements.svg?branch=master)](https://requires.io/github/syedwaseemjan/OnlineAddressBook/requirements/?branch=master)
+[![Build Status](https://travis-ci.org/syedwaseemjan/OnlineAddressBook.svg?branch=master)](https://travis-ci.org/syedwaseemjan/OnlineAddressBook)
 
 # OnlineAddressBook
 Python Flask Restful Api.
