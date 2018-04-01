@@ -1,13 +1,13 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import TextField
 from wtforms.validators import Required, Optional
 
 __all__ = ['NewGroupForm', 'UpdateGroupForm']
 
 
-class NewGroupForm(Form):
+class NewGroupForm(FlaskForm):
     name = TextField('Name', validators=[Required()])
 
 
-class UpdateGroupForm(Form):
+class UpdateGroupForm(FlaskForm):
     name = TextField('Name', validators=[Optional()])

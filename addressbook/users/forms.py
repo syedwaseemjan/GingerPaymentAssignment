@@ -1,4 +1,4 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import Form as WTForm, TextField, PasswordField, \
     BooleanField, FieldList, HiddenField, FormField
 from wtforms.validators import Required, Length, Optional
@@ -12,7 +12,7 @@ def get_groups():
     return Group.query.all()
 
 
-class LoginForm(Form):
+class LoginForm(FlaskForm):
     email = TextField(u'',
                       validators=[Required(u'Email is mandatory.')])
     password = PasswordField(u'',
@@ -24,7 +24,7 @@ class LoginForm(Form):
 
     def validate(self):
         self.flash = False
-        rv = Form.validate(self)
+        rv = FlaskForm.validate(self)
         if not rv:
             return False
 
@@ -62,7 +62,7 @@ class GroupForm(WTForm):
     name = QuerySelectField(query_factory=get_groups, blank_text='')
 
 
-class NewPersonForm(Form):
+class NewPersonForm(FlaskForm):
     first_name = TextField('First Name', validators=[Required()])
     last_name = TextField('Last Name', validators=[Required()])
 
@@ -72,7 +72,7 @@ class NewPersonForm(Form):
     groups = FieldList(FormField(GroupForm), min_entries=1)
 
 
-class UpdatePersonForm(Form):
+class UpdatePersonForm(FlaskForm):
     name = TextField('Name', validators=[Optional()])
     address = TextField('Address', validators=[Optional()])
     city = TextField('City', validators=[Optional()])

@@ -4,6 +4,18 @@ from flask import Flask
 
 from addressbook.extensions import db
 from addressbook.utils import register_blueprints
+from wtforms.ext.sqlalchemy import fields
+
+'''
+There is a bug in wtform fields and this function is a fix for it.
+Before it gets merged, we will need to patch this function ourself.
+'''
+def patched_get_pk_from_identity(obj):
+    cls, key, token = fields.identity_key(instance=obj)
+    return ':'.join(fields.text_type(x) for x in key)
+
+
+fields.get_pk_from_identity = patched_get_pk_from_identity
 
 
 def create_app(package_name, package_path, settings_override=None,

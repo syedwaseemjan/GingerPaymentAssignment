@@ -22,4 +22,4 @@ class Group(UserJsonSerializer, db.Model):
                               backref=db.backref('groups', lazy='dynamic'))
 
     def __str__(self):
-        return self.name
+        return '{0}-{1}'.format(self.id, self.name)
