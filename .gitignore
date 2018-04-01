@@ -2,3 +2,4 @@
 .webassets-cache
 book_address.db
 test_book_address.db-journal
+*.min.css

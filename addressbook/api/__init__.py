@@ -73,4 +73,6 @@ def unauthorized():
 
 @login_manager.user_loader
 def load_user(userid):
+    print('---------------------userid-------------------')
+    print(userid)
     return Admin.query.get(userid)
